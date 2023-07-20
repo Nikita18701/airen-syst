@@ -94,6 +94,14 @@ elif option == 'ISPU tool':
                 data['ISPU_HC'] = pd.cut(data['HC'], bins=[-float('inf'), 45, 100, 215, 432, 648, float('inf')], labels=[0, 50, 100, 200, 300, 1000])
             
                 st.write(data)
+                if st.button('Download CSV'):
+                csv_data = data
+                st.download_button(
+                label="Download CSV",
+                data=csv_data,
+                file_name="filtered_data.csv",
+                mime="text/csv")
+
             
                 # Convert categorical columns to numeric
                 data['ISPU_PM2p5'] = pd.to_numeric(data['ISPU_PM2p5'])
