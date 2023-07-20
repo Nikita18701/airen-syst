@@ -98,7 +98,7 @@ elif option == 'ISPU tool':
             st.write(data)
         
             if st.button('Download CSV'):
-                csv_data = data
+                csv_data = data.to_csv(index=False).encode('utf-8')
                 st.download_button(
                     label="Download CSV",
                     data=csv_data,
