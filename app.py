@@ -85,22 +85,26 @@ elif option == 'ISPU tool':
                 st.write(f'Invalid partikel selection: {partikel}')
     
         elif option == 'From Data':
-                data['ISPU_PM10'] = pd.cut(data['PM10'], bins=[-float('inf'), 50, 150, 350, 420, 500, float('inf')], labels=[0, 50, 100, 200, 300, 1000])
-                data['ISPU_PM2p5'] = pd.cut(data['PM2p5'], bins=[-float('inf'), 15.5, 55.4, 150.4, 250.4, 500, float('inf')], labels=[0, 50, 100, 200, 300, 1000])
-                data['ISPU_SO2'] = pd.cut(data['SO2'], bins=[-float('inf'), 52, 180, 400, 800, 1000, float('inf')], labels=[0, 50, 100, 200, 300, 1000])
-                data['ISPU_CO'] = pd.cut(data['CO'], bins=[-float('inf'), 4000, 8000, 15000, 30000, 45000, float('inf')], labels=[0, 50, 100, 200, 300, 1000])
-                data['ISPU_O3'] = pd.cut(data['O3'], bins=[-float('inf'), 120, 235, 400, 800, 1000, float('inf')], labels=[0, 50, 100, 200, 300, 1000])
-                data['ISPU_NO2'] = pd.cut(data['NO2'], bins=[-float('inf'), 80, 200, 1130, 2260, 3000, float('inf')], labels=[0, 50, 100, 200, 300, 1000])
-                data['ISPU_HC'] = pd.cut(data['HC'], bins=[-float('inf'), 45, 100, 215, 432, 648, float('inf')], labels=[0, 50, 100, 200, 300, 1000])
-            
-                st.write(data)
-                if st.button('Download CSV'):
+
+            # Your data processing code here
+            data['ISPU_PM10'] = pd.cut(data['PM10'], bins=[-float('inf'), 50, 150, 350, 420, 500, float('inf')], labels=[0, 50, 100, 200, 300, 1000])
+            data['ISPU_PM2p5'] = pd.cut(data['PM2p5'], bins=[-float('inf'), 15.5, 55.4, 150.4, 250.4, 500, float('inf')], labels=[0, 50, 100, 200, 300, 1000])
+            data['ISPU_SO2'] = pd.cut(data['SO2'], bins=[-float('inf'), 52, 180, 400, 800, 1000, float('inf')], labels=[0, 50, 100, 200, 300, 1000])
+            data['ISPU_CO'] = pd.cut(data['CO'], bins=[-float('inf'), 4000, 8000, 15000, 30000, 45000, float('inf')], labels=[0, 50, 100, 200, 300, 1000])
+            data['ISPU_O3'] = pd.cut(data['O3'], bins=[-float('inf'), 120, 235, 400, 800, 1000, float('inf')], labels=[0, 50, 100, 200, 300, 1000])
+            data['ISPU_NO2'] = pd.cut(data['NO2'], bins=[-float('inf'), 80, 200, 1130, 2260, 3000, float('inf')], labels=[0, 50, 100, 200, 300, 1000])
+            data['ISPU_HC'] = pd.cut(data['HC'], bins=[-float('inf'), 45, 100, 215, 432, 648, float('inf')], labels=[0, 50, 100, 200, 300, 1000])
+        
+            st.write(data)
+        
+            if st.button('Download CSV'):
                 csv_data = data
                 st.download_button(
-                label="Download CSV",
-                data=csv_data,
-                file_name="filtered_data.csv",
-                mime="text/csv")
+                    label="Download CSV",
+                    data=csv_data,
+                    file_name="filtered_data.csv",
+                    mime="text/csv"
+                )
 
             
                 # Convert categorical columns to numeric
