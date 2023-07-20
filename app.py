@@ -95,16 +95,18 @@ elif option == 'ISPU tool':
                 data['ISPU_NO2'] = pd.cut(data['NO2'], bins=[-float('inf'), 80, 200, 1130, 2260, 3000, float('inf')], labels=[0, 50, 100, 200, 300, 1000])
                 data['ISPU_HC'] = pd.cut(data['HC'], bins=[-float('inf'), 45, 100, 215, 432, 648, float('inf')], labels=[0, 50, 100, 200, 300, 1000])
 
-    # Select only the 'ISPU' column
-                ispu_data = data[['ISPU_PM10', 'ISPU_PM2p5', 'ISPU_SO2', 'ISPU_CO', 'ISPU_O3', 'ISPU_NO2', 'ISPU_HC']]
-                st.write(ispu_data)
+    # Select columns dynamically based on user input
+                selected_columns = st.multiselect('Select Columns to Download', data.columns)
+                selected_data = data[selected_columns]
+    
+                st.write(selected_data)
 
                 if st.button('Download CSV'):
-                    csv_data = ispu_data.to_csv(index=False).encode('utf-8')
+                    csv_data = selected_data.to_csv(index=False).encode('utf-8')
                     st.download_button(
                         label="Download CSV",
                         data=csv_data,
-                        file_name="ispu_data.csv",
+                        file_name="selected_data.csv",
                         mime="text/csv"
                     )
         
