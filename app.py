@@ -22,7 +22,7 @@ df.set_index('Datetime', inplace=True)
 option = st.sidebar.selectbox('Select Option', ('Machine Learning', 'Introduction', 'ISPU tool', 'Analysis tools', 'Real-time', 'Download Resources', 'Test'))
 if option == 'Machine Learning':
     # Fungsi untuk memprediksi kolom tertentu
-def predict_column(column_name):
+ def predict_column(column_name):
     # Mengonversi kolom menjadi tipe data numerik
     df[column_name] = pd.to_numeric(df[column_name], errors='coerce', downcast='integer')
     column_data = df[column_name]
@@ -48,11 +48,11 @@ def predict_column(column_name):
     
     return prediction_result
 
-# UI Streamlit
-st.title("Prediksi Data Time Series")
-selected_column = st.selectbox("Pilih kolom yang ingin diolah:", df.columns)
+ # UI Streamlit
+ st.title("Prediksi Data Time Series")
+ selected_column = st.selectbox("Pilih kolom yang ingin diolah:", df.columns)
 
-if st.button("Prediksi"):
+ if st.button("Prediksi"):
     st.write(f"Hasil Prediksi untuk Kolom '{selected_column}':")
     predictions = predict_column(selected_column)
     st.write(predictions)
