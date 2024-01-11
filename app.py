@@ -16,9 +16,6 @@ from io import BytesIO
 # Load data
 data = "Kota Jogja 2020_01-12.csv"
 df = pd.read_csv(data)
-df['Waktu'] = pd.to_datetime(df['Date'] + ' ' + df['Time'])
-df = df.drop(['Date', 'Time'], axis=1)
-df.set_index('Datetime', inplace=True)
 option = st.sidebar.selectbox('Select Option', ( 'Introduction', 'ISPU tool', 'Analysis tools', 'Real-time', 'Download Resources', 'Test'))
 
 if option == 'Introduction':
