@@ -111,14 +111,7 @@ elif option == 'ISPU tool':
                         mime="text/csv"
                     )
         
-                # Convert categorical columns to numeric
-                data['ISPU_PM2p5'] = pd.to_numeric(data['ISPU_PM2p5'])
-                data['ISPU_PM10'] = pd.to_numeric(data['ISPU_PM10'])
-                data['ISPU_SO2'] = pd.to_numeric(data['ISPU_SO2'])
-                data['ISPU_CO'] = pd.to_numeric(data['ISPU_CO'])
-                data['ISPU_O3'] = pd.to_numeric(data['ISPU_O3'])
-                data['ISPU_NO2'] = pd.to_numeric(data['ISPU_NO2'])
-                data['ISPU_HC'] = pd.to_numeric(data['ISPU_HC'])
+
             
                 # Date range selection
                 start_date = st.date_input('Start Date')
