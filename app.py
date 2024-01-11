@@ -29,7 +29,7 @@ if option == 'Introduction':
 elif option == 'ISPU tool':
         st.write('ISPU tool selected')
     
-        data['Waktu'] = pd.to_datetime(data['Waktu'])
+    
     
         option = st.radio("Select ISPU Calculation Option:", ('Manual Input', 'From Data'))
     
