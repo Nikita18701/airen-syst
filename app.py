@@ -14,9 +14,9 @@ from io import BytesIO
 
 
 # Load data
-data = "https://docs.google.com/spreadsheets/d/1tjFxtP6AiQ2xZ927yGs1kCB5Cg9OSNeWA-McsX5Bxq8/export?format=csv"
+data = "https://docs.google.com/spreadsheets/d/1I0y5Bjo-SfT4cc5K8cRDbLXm5kizbvWxUYsVniOoOf8/export?format=csv"
 df = pd.read_csv(data)
-df['Datetime'] = pd.to_datetime(df['Date'] + ' ' + df['Time'])
+df['Waktu'] = pd.to_datetime(df['Date'] + ' ' + df['Time'])
 df = df.drop(['Date', 'Time'], axis=1)
 df.set_index('Datetime', inplace=True)
 option = st.sidebar.selectbox('Select Option', ( 'Introduction', 'ISPU tool', 'Analysis tools', 'Real-time', 'Download Resources', 'Test'))
