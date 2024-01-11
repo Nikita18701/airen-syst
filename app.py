@@ -9,7 +9,7 @@ from pytube import YouTube
 from PIL import Image
 import requests
 from io import BytesIO
-from statsmodels.tsa.arima.model import ARIMA
+
 
 
 
