@@ -14,7 +14,7 @@ from io import BytesIO
 
 
 # Load data
-data = "https://docs.google.com/spreadsheets/d/1I0y5Bjo-SfT4cc5K8cRDbLXm5kizbvWxUYsVniOoOf8/export?format=csv"
+data = "Kota Jogja 2020_01-12.csv"
 df = pd.read_csv(data)
 df['Waktu'] = pd.to_datetime(df['Date'] + ' ' + df['Time'])
 df = df.drop(['Date', 'Time'], axis=1)
